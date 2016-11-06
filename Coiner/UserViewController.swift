@@ -32,12 +32,11 @@ class UserViewController: UIViewController, UITextFieldDelegate, UIPickerViewDel
     var country   : String? = nil
     var town      : String? = nil
     var username  : String? = nil
+    
+    var Wallet = [String : String]()
     var currencies : [String] = ["Yuan", "Euro", "US dollars", "GBP"]
-    
     var SelectedCurrency  : Int! = 0
-    
     var DataBaseRef : FIRDatabaseReference? = nil
-    
     var READY : Bool = false
     
     override func viewDidLoad() {
@@ -269,6 +268,17 @@ class UserViewController: UIViewController, UITextFieldDelegate, UIPickerViewDel
         }
         
         return IntValue
+    }
+    
+    func CollectWallet() {
+        self.Wallet["ZeroOne"] = self.LBL_ZeroOne.text
+        self.Wallet["ZeroTwo"] = self.LBL_ZeroTwo.text
+        self.Wallet["ZeroFive"] = self.LBL_ZeroFive.text
+        self.Wallet["One"] = self.LBL_One.text
+        self.Wallet["Two"] = self.LBL_Two.text
+        self.Wallet["Five"] = self.LBL_Five.text
+        self.Wallet["Ten"] = self.LBL_Ten.text
+        self.Wallet["FiveZero"] = self.LBL_FiveZero.text
     }
     
     /*
