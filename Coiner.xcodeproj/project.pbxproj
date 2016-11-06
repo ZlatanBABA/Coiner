@@ -1,0 +1,394 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B6A904DD29A8F77F68CCF289 /* Pods_Coiner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4B952B4E5FC69DADEF7536D /* Pods_Coiner.framework */; };
+		F17A17ED1DCEA7DE008BEC00 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17A17EC1DCEA7DE008BEC00 /* AppDelegate.swift */; };
+		F17A17EF1DCEA7DE008BEC00 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17A17EE1DCEA7DE008BEC00 /* ViewController.swift */; };
+		F17A17F21DCEA7DE008BEC00 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F17A17F01DCEA7DE008BEC00 /* Main.storyboard */; };
+		F17A17F41DCEA7DE008BEC00 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F17A17F31DCEA7DE008BEC00 /* Assets.xcassets */; };
+		F17A17F71DCEA7DE008BEC00 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F17A17F51DCEA7DE008BEC00 /* LaunchScreen.storyboard */; };
+		F17A17FF1DCEA853008BEC00 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F17A17FE1DCEA853008BEC00 /* GoogleService-Info.plist */; };
+		F17A18031DCEAE94008BEC00 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17A18021DCEAE94008BEC00 /* UserViewController.swift */; };
+		F17A18051DCEAECA008BEC00 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17A18041DCEAECA008BEC00 /* MapViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		2E4522724524D7EDEC9FD4C0 /* Pods-Coiner.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Coiner.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Coiner/Pods-Coiner.debug.xcconfig"; sourceTree = "<group>"; };
+		37FB224A931494A64FC1F6CF /* Pods-Coiner.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Coiner.release.xcconfig"; path = "Pods/Target Support Files/Pods-Coiner/Pods-Coiner.release.xcconfig"; sourceTree = "<group>"; };
+		A4B952B4E5FC69DADEF7536D /* Pods_Coiner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Coiner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F17A17E91DCEA7DE008BEC00 /* Coiner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Coiner.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F17A17EC1DCEA7DE008BEC00 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		F17A17EE1DCEA7DE008BEC00 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F17A17F11DCEA7DE008BEC00 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F17A17F31DCEA7DE008BEC00 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F17A17F61DCEA7DE008BEC00 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		F17A17F81DCEA7DE008BEC00 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F17A17FE1DCEA853008BEC00 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		F17A18021DCEAE94008BEC00 /* UserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
+		F17A18041DCEAECA008BEC00 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F17A17E61DCEA7DE008BEC00 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B6A904DD29A8F77F68CCF289 /* Pods_Coiner.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		20CD7FB753D93B9795A08525 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2E4522724524D7EDEC9FD4C0 /* Pods-Coiner.debug.xcconfig */,
+				37FB224A931494A64FC1F6CF /* Pods-Coiner.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		5D13E4CB0723AD02972C6343 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A4B952B4E5FC69DADEF7536D /* Pods_Coiner.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F17A17E01DCEA7DE008BEC00 = {
+			isa = PBXGroup;
+			children = (
+				F17A17EB1DCEA7DE008BEC00 /* Coiner */,
+				F17A17EA1DCEA7DE008BEC00 /* Products */,
+				20CD7FB753D93B9795A08525 /* Pods */,
+				5D13E4CB0723AD02972C6343 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		F17A17EA1DCEA7DE008BEC00 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F17A17E91DCEA7DE008BEC00 /* Coiner.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F17A17EB1DCEA7DE008BEC00 /* Coiner */ = {
+			isa = PBXGroup;
+			children = (
+				F17A17EC1DCEA7DE008BEC00 /* AppDelegate.swift */,
+				F17A17EE1DCEA7DE008BEC00 /* ViewController.swift */,
+				F17A17F01DCEA7DE008BEC00 /* Main.storyboard */,
+				F17A17F31DCEA7DE008BEC00 /* Assets.xcassets */,
+				F17A17F51DCEA7DE008BEC00 /* LaunchScreen.storyboard */,
+				F17A17F81DCEA7DE008BEC00 /* Info.plist */,
+				F17A17FE1DCEA853008BEC00 /* GoogleService-Info.plist */,
+				F17A18021DCEAE94008BEC00 /* UserViewController.swift */,
+				F17A18041DCEAECA008BEC00 /* MapViewController.swift */,
+			);
+			path = Coiner;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F17A17E81DCEA7DE008BEC00 /* Coiner */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F17A17FB1DCEA7DE008BEC00 /* Build configuration list for PBXNativeTarget "Coiner" */;
+			buildPhases = (
+				152C240791A64D9045B01073 /* [CP] Check Pods Manifest.lock */,
+				F17A17E51DCEA7DE008BEC00 /* Sources */,
+				F17A17E61DCEA7DE008BEC00 /* Frameworks */,
+				F17A17E71DCEA7DE008BEC00 /* Resources */,
+				24768CC22CC1C08242BDF7A0 /* [CP] Embed Pods Frameworks */,
+				E0F37F4D834E90D5AD9C87FD /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Coiner;
+			productName = Coiner;
+			productReference = F17A17E91DCEA7DE008BEC00 /* Coiner.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F17A17E11DCEA7DE008BEC00 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0810;
+				LastUpgradeCheck = 0810;
+				ORGANIZATIONNAME = leomac;
+				TargetAttributes = {
+					F17A17E81DCEA7DE008BEC00 = {
+						CreatedOnToolsVersion = 8.1;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = F17A17E41DCEA7DE008BEC00 /* Build configuration list for PBXProject "Coiner" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F17A17E01DCEA7DE008BEC00;
+			productRefGroup = F17A17EA1DCEA7DE008BEC00 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F17A17E81DCEA7DE008BEC00 /* Coiner */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F17A17E71DCEA7DE008BEC00 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F17A17F71DCEA7DE008BEC00 /* LaunchScreen.storyboard in Resources */,
+				F17A17FF1DCEA853008BEC00 /* GoogleService-Info.plist in Resources */,
+				F17A17F41DCEA7DE008BEC00 /* Assets.xcassets in Resources */,
+				F17A17F21DCEA7DE008BEC00 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		152C240791A64D9045B01073 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		24768CC22CC1C08242BDF7A0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Coiner/Pods-Coiner-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E0F37F4D834E90D5AD9C87FD /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Coiner/Pods-Coiner-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F17A17E51DCEA7DE008BEC00 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F17A17EF1DCEA7DE008BEC00 /* ViewController.swift in Sources */,
+				F17A18031DCEAE94008BEC00 /* UserViewController.swift in Sources */,
+				F17A17ED1DCEA7DE008BEC00 /* AppDelegate.swift in Sources */,
+				F17A18051DCEAECA008BEC00 /* MapViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		F17A17F01DCEA7DE008BEC00 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F17A17F11DCEA7DE008BEC00 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		F17A17F51DCEA7DE008BEC00 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F17A17F61DCEA7DE008BEC00 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F17A17F91DCEA7DE008BEC00 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		F17A17FA1DCEA7DE008BEC00 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F17A17FC1DCEA7DE008BEC00 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2E4522724524D7EDEC9FD4C0 /* Pods-Coiner.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Coiner/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.leomac.Coiner;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		F17A17FD1DCEA7DE008BEC00 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 37FB224A931494A64FC1F6CF /* Pods-Coiner.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Coiner/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.leomac.Coiner;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F17A17E41DCEA7DE008BEC00 /* Build configuration list for PBXProject "Coiner" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F17A17F91DCEA7DE008BEC00 /* Debug */,
+				F17A17FA1DCEA7DE008BEC00 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F17A17FB1DCEA7DE008BEC00 /* Build configuration list for PBXNativeTarget "Coiner" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F17A17FC1DCEA7DE008BEC00 /* Debug */,
+				F17A17FD1DCEA7DE008BEC00 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F17A17E11DCEA7DE008BEC00 /* Project object */;
+}
