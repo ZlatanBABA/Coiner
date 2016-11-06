@@ -17,6 +17,17 @@ class UserViewController: UIViewController, UITextFieldDelegate, UIPickerViewDel
     @IBOutlet weak var BTN_Currency_done: UIButton!
     @IBOutlet weak var TXT_Username: UITextField!
     
+    // MARK: - UI Money Labels
+    @IBOutlet weak var LBL_ZeroOne: UILabel!
+    @IBOutlet weak var LBL_ZeroTwo: UILabel!
+    @IBOutlet weak var LBL_ZeroFive: UILabel!
+    @IBOutlet weak var LBL_One: UILabel!
+    @IBOutlet weak var LBL_Two: UILabel!
+    @IBOutlet weak var LBL_Five: UILabel!
+    @IBOutlet weak var LBL_Ten: UILabel!
+    @IBOutlet weak var LBL_FiveZero: UILabel!
+    
+    
     var useremail : String? = nil
     var country   : String? = nil
     var town      : String? = nil
@@ -118,8 +129,54 @@ class UserViewController: UIViewController, UITextFieldDelegate, UIPickerViewDel
             }
             
         })
-        
     }
+    
+    // Money Labels
+    // 0.1
+    @IBAction func Action_STPR_ZeroOne(_ sender: UIStepper) {
+        
+        self.LBL_ZeroOne.text = String(GetStepperValue(sender: sender))
+    }
+    
+    // 0.2
+    @IBAction func Action_STPR_ZeroTwo(_ sender: UIStepper) {
+        self.LBL_ZeroTwo.text = String(GetStepperValue(sender: sender))
+    }
+    
+    // 0.5
+    @IBAction func Action_STPR_ZeroFive(_ sender: UIStepper) {
+        self.LBL_ZeroFive.text = String(GetStepperValue(sender: sender))
+    }
+    
+    // 1
+    @IBAction func Action_STPR_One(_ sender: UIStepper) {
+        self.LBL_One.text = String(GetStepperValue(sender: sender))
+    }
+    
+    // 2
+    @IBAction func Action_STPR_Two(_ sender: UIStepper) {
+        self.LBL_Two.text = String(GetStepperValue(sender: sender))
+    }
+    
+    // 5
+    @IBAction func Action_STPR_Five(_ sender: UIStepper) {
+        self.LBL_Five.text = String(GetStepperValue(sender: sender))
+    }
+    
+    // 10
+    @IBAction func Action_STPR_Ten(_ sender: UIStepper) {
+        self.LBL_Ten.text = String(GetStepperValue(sender: sender))
+    }
+    
+    // 50
+    @IBAction func Action_STPR_FiveZero(_ sender: UIStepper) {
+        self.LBL_FiveZero.text = String(GetStepperValue(sender: sender))
+    }
+    
+    
+    
+    
+    
     
     //  MARK: - FIRBase wrapped funcs
     func RegisterUserName(username : String, country : String) {
@@ -195,6 +252,23 @@ class UserViewController: UIViewController, UITextFieldDelegate, UIPickerViewDel
          dataBaseRef.child("users").child(username).updateChildValues(postItems)*/
         
         self.navigationController!.popToRootViewController(animated: true)
+    }
+    
+    
+    // MARK: - Others
+    func GetStepperValue(sender: UIStepper) -> Int {
+        
+        if sender.value > 10.0 {
+            sender.value = 10.0
+        }
+        
+        var IntValue : Int = Int(sender.value)
+        
+        if IntValue > 10 {
+            IntValue = 10
+        }
+        
+        return IntValue
     }
     
     /*
