@@ -25,6 +25,7 @@ class UserViewController: UIViewController, UITextFieldDelegate, UIPickerViewDel
     @IBOutlet weak var LBL_Two: UILabel!
     @IBOutlet weak var LBL_Five: UILabel!
     @IBOutlet weak var LBL_Ten: UILabel!
+    @IBOutlet weak var LBL_TwoZero: UILabel!
     @IBOutlet weak var LBL_FiveZero: UILabel!
     
     
@@ -127,7 +128,10 @@ class UserViewController: UIViewController, UITextFieldDelegate, UIPickerViewDel
                 self.DataBaseRef?.child("Country").child(self.country!).child(self.useremail!).setValue(UsernameItem)
             }
             
+            self.CollectWallet()
+            self.READY = true
         })
+        
     }
     
     // Money Labels
@@ -167,15 +171,15 @@ class UserViewController: UIViewController, UITextFieldDelegate, UIPickerViewDel
         self.LBL_Ten.text = String(GetStepperValue(sender: sender))
     }
     
+    // 20
+    @IBAction func Action_STPR_TwoZero(_ sender: UIStepper) {
+        self.LBL_TwoZero.text = String(GetStepperValue(sender: sender))
+    }
+    
     // 50
     @IBAction func Action_STPR_FiveZero(_ sender: UIStepper) {
         self.LBL_FiveZero.text = String(GetStepperValue(sender: sender))
     }
-    
-    
-    
-    
-    
     
     //  MARK: - FIRBase wrapped funcs
     func RegisterUserName(username : String, country : String) {
@@ -278,6 +282,7 @@ class UserViewController: UIViewController, UITextFieldDelegate, UIPickerViewDel
         self.Wallet["Two"] = self.LBL_Two.text
         self.Wallet["Five"] = self.LBL_Five.text
         self.Wallet["Ten"] = self.LBL_Ten.text
+        self.Wallet["TwoZero"] = self.LBL_TwoZero.text
         self.Wallet["FiveZero"] = self.LBL_FiveZero.text
     }
     

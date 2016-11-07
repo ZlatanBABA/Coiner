@@ -13,36 +13,29 @@ import Firebase
 class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDataSource, UIPickerViewDelegate {
     
     // MARK: - Declarations of GUI elements
-    @IBOutlet weak var Email: UITextField!
-    @IBOutlet weak var Password: UITextField!
-    @IBOutlet weak var Country: UITextField!
-    @IBOutlet weak var Town: UITextField!
-    
     @IBOutlet weak var CoutryPickerView: UIPickerView!
-    
+    @IBOutlet weak var BTN_Country: UIButton!
     @IBOutlet weak var AnimationView: CSAnimationView!
     @IBOutlet weak var Start: UIButton!
     @IBOutlet weak var PickerViewFinishButton: UIButton!
-    
-    @IBOutlet weak var Modes: UISegmentedControl!
+    @IBOutlet weak var TXT_Username: UITextField!
     
     //  MARK: - Declarations of other variables
     var selectedMode : Int! = 0
-    var selectedRow  : Int! = 0
+    var selectedCountry  : Int! = 0
     var selectedPickerView : Int! = 0
-    
     var countries : [String] = []
+    var DataBaseRef : FIRDatabaseReference? = nil
     
     override func viewWillAppear(_ animated: Bool) {
-        self.Email.text = ""
-        self.Password.text = ""
-        //self.Country.text = ""
+
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //        var result = getInput()
-        //        print(result)
+        
+        // Init Database
+        self.DataBaseRef = FIRDatabase.database().reference()
         
         // set delegates
         setDelegates()
@@ -51,83 +44,68 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDataSou
         hideGUI()
         
         // Set guis
-        setStartButton()
+        //setStartButton()
         
-        self.title = "Login"
-        
-        // Load country list
-        for code in Locale.isoRegionCodes as [String] {
-            let id = Locale.identifier(fromComponents: [NSLocale.Key.countryCode.rawValue: code])
-            let name = (Locale(identifier: "en_US") as NSLocale).displayName(forKey: NSLocale.Key.identifier, value: id) ?? "Country not found for code: \(code)"
-            countries.append(name)
-        }
-        
-        countries.sort(){$0 < $1}
-        countries.insert("Germany", at: 0)
+        LoadCountryList()
     }
     
     // MARK: - GUI ACTIONS
     @IBAction func UserStart(_ sender: AnyObject) {
         
-        if Password.text != "" && Email.text != "" && Country.text != "" && Email.text?.range(of: "@") != nil {
-            start()
+        var IsUnique : Bool = true
+        
+        if self.BTN_Country.titleLabel?.text != "COUNTRY" && self.TXT_Username.text != "" {
+            
+            self.DataBaseRef?.child("Country").child((self.BTN_Country.titleLabel?.text)!).observeSingleEvent(of: .value, with: { (snapshot) in
+                
+                // check if user name is unique
+                for snap in snapshot.children.allObjects {
+                    let AChild = snap as! FIRDataSnapshot
+                    
+                    print(AChild.key)
+                    
+                    if AChild.key == self.TXT_Username.text {
+                        
+                        IsUnique = false
+                        break
+                    }
+                }
+                
+                // register user if name is unique
+                if IsUnique {
+                    print("I am unique")
+                    let UsernameItem : [String : String] = ["username" : self.TXT_Username.text!]
+                    self.DataBaseRef?.child("Country").child((self.BTN_Country.titleLabel?.text)!).child(self.TXT_Username.text!).setValue(UsernameItem)
+                } else {
+                    self.shakeButton()
+                }
+                
+                //            self.CollectWallet()
+                //            self.READY = true
+            })
         } else {
             self.shakeButton()
         }
         
     }
-    
-    @IBAction func ModeChanged(_ sender: AnyObject) {
-        
-        self.Email.text = ""
-        self.Password.text = ""
-        self.Country.text = ""
-        self.Town.text = ""
-        
-        self.selectedMode = self.Modes.selectedSegmentIndex
-        
-        view.endEditing(true)
-    }
-    
-    @IBAction func UserTouchCountry(_ sender: AnyObject) {
-        view.endEditing(true)
-    }
-    
-    // When country text field is selected
-    @IBAction func ShowCountryPicker(_ sender: AnyObject) {
-        
-        view.endEditing(true)
-        
-        self.Country.text = ""
-        self.Country.isUserInteractionEnabled = false
-        self.selectedPickerView = 0
+
+    @IBAction func Action_CountrySelected(_ sender: Any) {
         self.CoutryPickerView.isHidden = false
         self.PickerViewFinishButton.isHidden = false
-    }
-    
-    // When country text field is unselected
-    @IBAction func CloseCountryPicker(_ sender: AnyObject) {
-        
-        self.selectedPickerView = -1
-        self.Country.isUserInteractionEnabled = true
-        self.CoutryPickerView.isHidden = true
-        self.PickerViewFinishButton.isHidden = true
-    }
-    
-    @IBAction func PickerViewFinish(_ sender: AnyObject) {
-        
-        self.Country.isUserInteractionEnabled = true
-        
-        if self.selectedPickerView == 0 {
-            // Country picker view
-            self.Country.text = self.countries[self.selectedRow]
-            self.PickerViewFinishButton.isHidden = true
-            self.CoutryPickerView.isHidden = true
-            
-            self.Town.becomeFirstResponder()
-        }
-        
         view.endEditing(true)
+        
+    }
+    
+    @IBAction func Action_CountryPickerView_Done(_ sender: Any) {
+        self.PickerViewFinishButton.isHidden = true
+        self.CoutryPickerView.isHidden = true
+        
+        self.BTN_Country.setTitle(self.countries[self.selectedCountry], for: .normal)
+    }
+    
+    @IBAction func Action_TXT_Username_Selected(_ sender: Any) {
+        self.PickerViewFinishButton.isHidden = true
+        self.CoutryPickerView.isHidden = true
     }
     
     // MARK: - FUNCS
@@ -138,24 +116,16 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDataSou
         return true
     }
     
-    // Login functions
-    func Login() {
+    func LoadCountryList() {
+        // Load country list
+        for code in Locale.isoRegionCodes as [String] {
+            let id = Locale.identifier(fromComponents: [NSLocale.Key.countryCode.rawValue: code])
+            let name = (Locale(identifier: "en_US") as NSLocale).displayName(forKey: NSLocale.Key.identifier, value: id) ?? "Country not found for code: \(code)"
+            countries.append(name)
+        }
         
-        FIRAuth.auth()?.signIn(withEmail: self.Email.text!, password: self.Password.text!, completion: { (user, error) in
-            
-            if error != nil {
-                print("User : ", self.Email.text ?? "unknow", " login failed")
-                self.shakeButton()
-                
-            }
-            else {
-                print("User : ", self.Email.text ?? "unknow", " login successfully")
-                
-                self.performSegue(withIdentifier: "toUserView", sender: nil)
-            }
-            
-        })
-        
+        self.countries.sort(){$0 < $1}
+        self.countries.insert("Germany", at: 0)
     }
     
     func setStartButton() {
@@ -167,50 +137,18 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDataSou
     
     func shakeButton() {
         self.AnimationView.type = "shake"
-        self.AnimationView.duration = 0.2
+        self.AnimationView.duration = 0.1
         self.AnimationView.delay = 0
         self.AnimationView.startCanvasAnimation()
     }
     
-    func start() {
-        
-        if self.selectedMode == 0 {
-            
-            print("Try to login")
-            self.Login()
-            
-            
-        } else if self.selectedMode == 1 {
-            
-            print("Try to register")
-            
-            FIRAuth.auth()?.createUser(withEmail: self.Email.text!, password: self.Password.text!, completion: { (user, error) in
-                
-                if (error != nil) {
-                    
-                    self.shakeButton()
-                    
-                } else {
-                    print("Registration successful")
-                    self.performSegue(withIdentifier: "toUserView", sender: nil)
-                }
-                
-            })
-        }
-    }
-    
     func setDelegates() {
-        self.Email.delegate = self
-        self.Password.delegate = self
-        self.Country.delegate = self
-        self.Town.delegate = self
-        
+        self.TXT_Username.delegate = self
         self.CoutryPickerView.delegate = self
         self.CoutryPickerView.dataSource = self
     }
     
     func hideGUI() {
-        
         self.CoutryPickerView.isHidden = true
         self.PickerViewFinishButton.isHidden = true
     }
@@ -222,10 +160,6 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDataSou
             let targetView = segue.destination as! UserViewController
             
             
-            let temp = self.Email.text?.replacingOccurrences(of: ".", with: "", options: NSString.CompareOptions.literal, range: nil)
-            
-            targetView.useremail = temp
-            targetView.country = self.Country.text! as String
         }
     }
     
@@ -236,17 +170,9 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDataSou
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
-        if selectedPickerView != -1 {
-            self.selectedPickerView = -1
-            self.Country.isUserInteractionEnabled = true
-            self.CoutryPickerView.isHidden = true
-            self.PickerViewFinishButton.isHidden = true
-            
-            self.Town.becomeFirstResponder()
-        }
-        
+        self.PickerViewFinishButton.isHidden = true
+        self.CoutryPickerView.isHidden = true
         view.endEditing(true)
-        
     }
     
     // MARK: - PICKER VIEW METHODS
@@ -278,7 +204,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDataSou
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        self.selectedRow = row
+        self.selectedCountry = row
     }
 }
 
