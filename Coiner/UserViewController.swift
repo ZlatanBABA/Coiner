@@ -15,7 +15,6 @@ class UserViewController: UIViewController, UITextFieldDelegate, UIPickerViewDel
     @IBOutlet weak var PICKER_Currency: UIPickerView!
     @IBOutlet weak var BTN_Currency: UIButton!
     @IBOutlet weak var BTN_Currency_done: UIButton!
-    @IBOutlet weak var TXT_Username: UITextField!
     
     // MARK: - UI Money Labels
     @IBOutlet weak var LBL_ZeroOne: UILabel!
@@ -28,10 +27,7 @@ class UserViewController: UIViewController, UITextFieldDelegate, UIPickerViewDel
     @IBOutlet weak var LBL_TwoZero: UILabel!
     @IBOutlet weak var LBL_FiveZero: UILabel!
     
-    
-    var useremail : String? = nil
     var country   : String? = nil
-    var town      : String? = nil
     var username  : String? = nil
     
     var Wallet = [String : String]()
@@ -43,7 +39,6 @@ class UserViewController: UIViewController, UITextFieldDelegate, UIPickerViewDel
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.TXT_Username.delegate = self
         self.PICKER_Currency.delegate = self
         self.PICKER_Currency.dataSource = self
         
@@ -51,7 +46,6 @@ class UserViewController: UIViewController, UITextFieldDelegate, UIPickerViewDel
         self.BTN_Currency_done.isHidden = true
         
         self.title = "Prepare Your Changes"
-        self.TXT_Username.text = ""
         
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "LOGOUT", style: UIBarButtonItemStyle.plain, target: self, action: #selector(UserViewController.logout(_:)))
         
@@ -73,16 +67,8 @@ class UserViewController: UIViewController, UITextFieldDelegate, UIPickerViewDel
     //  MARK: - UI Actions
     @IBAction func StartButton(_ sender: AnyObject) {
         
-        if self.username != nil {
-            
-            // post Country, Town, Coins to database
-            
-            let postItem: [String : String] = ["money" : self.TXT_Username.text!]
-            
-            DataBaseRef?.child("Country").child(self.country!).child(self.useremail!).setValue(postItem)
-            
-            print("Refresh user : ", self.useremail ?? "unknow", "'s money")
-        }
+        CollectWallet()
+        self.DataBaseRef?.child("Country").child(self.country!).child(self.username!).child("wallet").updateChildValues(self.Wallet)
         
     }
     
@@ -98,39 +84,6 @@ class UserViewController: UIViewController, UITextFieldDelegate, UIPickerViewDel
         self.BTN_Currency_done.isHidden = true
         
         self.BTN_Currency.setTitle(self.currencies[self.SelectedCurrency], for: .normal)
-        
-    }
-    
-    @IBAction func Action_TXT_Finish_Edit(_ sender: Any) {
-        
-        var IsUnique : Bool = true
-        
-        self.DataBaseRef?.child("Country").child(self.country!).observeSingleEvent(of: .value, with: { (snapshot) in
-            
-            // check if user name is unique
-            for snap in snapshot.children.allObjects {
-                let AChild = snap as! FIRDataSnapshot
-                let AChildUsername : String = AChild.childSnapshot(forPath: "username").value as! String
-                
-                print(AChildUsername)
-                
-                if AChildUsername == self.TXT_Username.text {
-                    
-                    IsUnique = false
-                    break
-                }
-            }
-            
-            // register user if name is unique
-            if IsUnique {
-                print("I am unique")
-                let UsernameItem : [String : String] = ["username" : self.TXT_Username.text!]
-                self.DataBaseRef?.child("Country").child(self.country!).child(self.useremail!).setValue(UsernameItem)
-            }
-            
-            self.CollectWallet()
-            self.READY = true
-        })
         
     }
     
@@ -181,46 +134,12 @@ class UserViewController: UIViewController, UITextFieldDelegate, UIPickerViewDel
         self.LBL_FiveZero.text = String(GetStepperValue(sender: sender))
     }
     
-    //  MARK: - FIRBase wrapped funcs
-    func RegisterUserName(username : String, country : String) {
-        
-        var IsUnique : Bool = true
-        
-        self.DataBaseRef?.child("Country").child(country).observeSingleEvent(of: .value, with: { (snapshot) in
-            
-            // check if user name is unique
-            for snap in snapshot.children.allObjects {
-                let AChild = snap as! FIRDataSnapshot
-                let AChildUsername : String = AChild.childSnapshot(forPath: "username").value as! String
-                
-                print(AChildUsername)
-                
-                if AChildUsername == self.TXT_Username.text {
-                    
-                    IsUnique = false
-                    break
-                }
-            }
-            
-            // register user if name is unique
-            if IsUnique {
-                print("I am unique")
-                let UsernameItem : [String : String] = ["username" : self.TXT_Username.text!]
-                self.DataBaseRef?.child("Country").child(country).child(self.useremail!).setValue(UsernameItem)
-            }
-            
-        })
-        
-    }
-    
-    
     //  MARK: - Override functions
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "showMapView" {
             let targetView = segue.destination as! MapViewController
             
-            targetView.useremail = self.useremail
             targetView.username = self.username
             targetView.country = self.country
         }
@@ -245,14 +164,7 @@ class UserViewController: UIViewController, UITextFieldDelegate, UIPickerViewDel
     func logout(_ sender: UIBarButtonItem) {
         print("User : ", self.username ?? "unknow", " Logout")
         
-        // post my location to database
-        /*let dataBaseRef = FIRDatabase.database().reference()
-         
-         let postItems: [String : Double] = ["latitude" : -1, "longitude" : -1]
-         
-         let username = self.useremail!.replacingOccurrences(of: ".", with: "", options: NSString.CompareOptions.literal, range: nil)
-         
-         dataBaseRef.child("users").child(username).updateChildValues(postItems)*/
+        DataBaseRef?.child("Country").child(self.country!).child(self.username!).removeValue()
         
         self.navigationController!.popToRootViewController(animated: true)
     }

@@ -73,15 +73,15 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDataSou
                 
                 // register user if name is unique
                 if IsUnique {
-                    print("I am unique")
+                    print("Register new user successful")
                     let UsernameItem : [String : String] = ["username" : self.TXT_Username.text!]
                     self.DataBaseRef?.child("Country").child((self.BTN_Country.titleLabel?.text)!).child(self.TXT_Username.text!).setValue(UsernameItem)
+                    
+                    self.performSegue(withIdentifier: "toUserView", sender: nil)
                 } else {
                     self.shakeButton()
                 }
                 
-                //            self.CollectWallet()
-                //            self.READY = true
             })
         } else {
             self.shakeButton()
@@ -159,6 +159,8 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDataSou
         if segue.identifier == "toUserView" {
             let targetView = segue.destination as! UserViewController
             
+            targetView.username = self.TXT_Username.text
+            targetView.country  = self.countries[selectedCountry]
             
         }
     }
