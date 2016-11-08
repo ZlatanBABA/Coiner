@@ -74,7 +74,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDataSou
                 // register user if name is unique
                 if IsUnique {
                     print("Register new user successful")
-                    let UsernameItem : [String : String] = ["username" : self.TXT_Username.text!]
+                    let UsernameItem : [String : String] = ["Occupied" : "No"]
                     self.DataBaseRef?.child("Country").child((self.BTN_Country.titleLabel?.text)!).child(self.TXT_Username.text!).setValue(UsernameItem)
                     
                     self.performSegue(withIdentifier: "toUserView", sender: nil)

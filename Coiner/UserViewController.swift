@@ -10,13 +10,13 @@ import UIKit
 import Firebase
 import FirebaseDatabase
 
-class UserViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
-    
-    @IBOutlet weak var PICKER_Currency: UIPickerView!
-    @IBOutlet weak var BTN_Currency: UIButton!
-    @IBOutlet weak var BTN_Currency_done: UIButton!
+class UserViewController: UIViewController {
     
     // MARK: - UI Money Labels
+    
+    @IBOutlet weak var LBL_ZeroZeroOne: UILabel!
+    @IBOutlet weak var LBL_ZeroZeroTwo: UILabel!
+    @IBOutlet weak var LBL_ZeroZeroFive: UILabel!
     @IBOutlet weak var LBL_ZeroOne: UILabel!
     @IBOutlet weak var LBL_ZeroTwo: UILabel!
     @IBOutlet weak var LBL_ZeroFive: UILabel!
@@ -39,12 +39,6 @@ class UserViewController: UIViewController, UITextFieldDelegate, UIPickerViewDel
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.PICKER_Currency.delegate = self
-        self.PICKER_Currency.dataSource = self
-        
-        self.PICKER_Currency.isHidden = true
-        self.BTN_Currency_done.isHidden = true
-        
         self.title = "Prepare Your Changes"
         
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "LOGOUT", style: UIBarButtonItemStyle.plain, target: self, action: #selector(UserViewController.logout(_:)))
@@ -59,11 +53,6 @@ class UserViewController: UIViewController, UITextFieldDelegate, UIPickerViewDel
         
     }
     
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        view.endEditing(true)
-        return true
-    }
-    
     //  MARK: - UI Actions
     @IBAction func StartButton(_ sender: AnyObject) {
         
@@ -72,22 +61,22 @@ class UserViewController: UIViewController, UITextFieldDelegate, UIPickerViewDel
         
     }
     
-    @IBAction func Action_BTN_Currency_Clicked(_ sender: Any) {
-        
-        self.PICKER_Currency.isHidden = false
-        self.BTN_Currency_done.isHidden = false
-        
-    }
-    
-    @IBAction func Action_BTN_Currency_done_Clicked(_ sender: Any) {
-        self.PICKER_Currency.isHidden = true
-        self.BTN_Currency_done.isHidden = true
-        
-        self.BTN_Currency.setTitle(self.currencies[self.SelectedCurrency], for: .normal)
-        
-    }
-    
     // Money Labels
+    // 0.01
+    @IBAction func Action_STPR_ZeroZeroOne(_ sender: UIStepper) {
+        self.LBL_ZeroZeroOne.text = String(GetStepperValue(sender: sender))
+    }
+    
+    // 0.02
+    @IBAction func Action_STPR_ZeroZeroTwo(_ sender: UIStepper) {
+        self.LBL_ZeroZeroTwo.text = String(GetStepperValue(sender: sender))    }
+
+
+    // 0.05
+    @IBAction func Action_STPR_ZeroZeroFive(_ sender: UIStepper) {
+        self.LBL_ZeroZeroFive.text = String(GetStepperValue(sender: sender))
+   }
+
     // 0.1
     @IBAction func Action_STPR_ZeroOne(_ sender: UIStepper) {
         
@@ -145,22 +134,6 @@ class UserViewController: UIViewController, UITextFieldDelegate, UIPickerViewDel
         }
     }
     
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return self.currencies.count
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return currencies[row]
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        self.SelectedCurrency = row
-    }
-    
     func logout(_ sender: UIBarButtonItem) {
         print("User : ", self.username ?? "unknow", " Logout")
         
@@ -187,6 +160,9 @@ class UserViewController: UIViewController, UITextFieldDelegate, UIPickerViewDel
     }
     
     func CollectWallet() {
+        self.Wallet["ZeroZeroOne"] = self.LBL_ZeroOne.text
+        self.Wallet["ZeroZeroTwo"] = self.LBL_ZeroZeroTwo.text
+        self.Wallet["ZeroZeroFive"] = self.LBL_ZeroZeroFive.text
         self.Wallet["ZeroOne"] = self.LBL_ZeroOne.text
         self.Wallet["ZeroTwo"] = self.LBL_ZeroTwo.text
         self.Wallet["ZeroFive"] = self.LBL_ZeroFive.text
