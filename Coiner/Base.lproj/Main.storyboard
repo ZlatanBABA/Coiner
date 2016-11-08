@@ -107,7 +107,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TQi-9G-0qc">
-                                <rect key="frame" x="27" y="321.5" width="42" height="24.5"/>
+                                <rect key="frame" x="26.5" y="321.5" width="42" height="24.5"/>
                                 <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -138,17 +138,17 @@
                         <outlet property="PickerViewFinishButton" destination="hwl-WH-Cp8" id="xWD-TO-bA6"/>
                         <outlet property="Start" destination="5lL-4I-10N" id="s3q-FY-r0g"/>
                         <outlet property="TXT_Username" destination="Bdb-Lq-x0L" id="5Gk-ov-JR2"/>
-                        <segue destination="L9K-eU-QEm" kind="show" identifier="toUserView" id="sND-gE-Km6"/>
+                        <segue destination="L9K-eU-QEm" kind="show" identifier="toWalletView" id="sND-gE-Km6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1376.8" y="446.62668665667172"/>
+            <point key="canvasLocation" x="1425" y="447"/>
         </scene>
-        <!--User View Controller-->
+        <!--Wallet View Controller-->
         <scene sceneID="8ek-AQ-Nvt">
             <objects>
-                <viewController id="L9K-eU-QEm" customClass="UserViewController" customModule="Coiner" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="L9K-eU-QEm" customClass="WalletViewController" customModule="Coiner" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="tdQ-Ii-TAt"/>
                         <viewControllerLayoutGuide type="bottom" id="FNo-d4-446"/>
@@ -165,7 +165,7 @@
                                 </state>
                                 <connections>
                                     <action selector="StartButton:" destination="L9K-eU-QEm" eventType="touchUpInside" id="KuR-gG-dzt"/>
-                                    <segue destination="KZG-Yr-bjh" kind="show" identifier="showMapView" id="N36-ki-sWJ"/>
+                                    <segue destination="c1E-Ld-sCk" kind="show" identifier="toGoalView" id="BKn-MN-51c"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MWz-4Z-8wd">
@@ -273,7 +273,7 @@
                                 </connections>
                             </stepper>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hdh-4L-cIe">
-                                <rect key="frame" x="103" y="326.5" width="10" height="24.5"/>
+                                <rect key="frame" x="102.5" y="326.5" width="10" height="24.5"/>
                                 <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -285,13 +285,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pws-LS-dZX">
-                                <rect key="frame" x="263" y="246.5" width="10" height="24.5"/>
+                                <rect key="frame" x="262.5" y="246.5" width="10" height="24.5"/>
                                 <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Ex-Tc-q8j">
-                                <rect key="frame" x="103" y="406.5" width="10" height="24.5"/>
+                                <rect key="frame" x="102.5" y="406.5" width="10" height="24.5"/>
                                 <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -303,7 +303,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QrF-H0-9eo">
-                                <rect key="frame" x="103" y="486.5" width="10" height="24.5"/>
+                                <rect key="frame" x="102.5" y="486.5" width="10" height="24.5"/>
                                 <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -321,20 +321,20 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bug-OO-bj5">
-                                <rect key="frame" x="337" y="443" width="20.5" height="21"/>
+                                <rect key="frame" x="337.5" y="443" width="20.5" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="YZh-eD-xWq">
-                                <rect key="frame" x="220" y="439" width="94" height="29"/>
+                                <rect key="frame" x="220.5" y="439" width="94" height="29"/>
                                 <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <action selector="Action_STPR_TwoZero:" destination="L9K-eU-QEm" eventType="valueChanged" id="hQq-CN-uyd"/>
                                 </connections>
                             </stepper>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hM1-tG-Ohj">
-                                <rect key="frame" x="263" y="406.5" width="10" height="24.5"/>
+                                <rect key="frame" x="262.5" y="406.5" width="10" height="24.5"/>
                                 <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -492,7 +492,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WaV-Wb-9vG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2201" y="447"/>
+            <point key="canvasLocation" x="2809" y="447"/>
         </scene>
         <!--Map View Controller-->
         <scene sceneID="h80-w2-OUI">
@@ -524,7 +524,28 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hr1-sc-Xsi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2201" y="1223"/>
+            <point key="canvasLocation" x="1425" y="1199"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Y7V-Cu-ldu">
+            <objects>
+                <viewController id="c1E-Ld-sCk" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Hbf-eC-UNF"/>
+                        <viewControllerLayoutGuide type="bottom" id="eBm-Fk-fcB"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="oyS-Dy-7mc">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <segue destination="KZG-Yr-bjh" kind="show" identifier="toMapView" id="hVt-wd-VQ5"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xw7-Ns-i42" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2855" y="1217"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="XeX-AE-qLV">

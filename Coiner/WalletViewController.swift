@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 import FirebaseDatabase
 
-class UserViewController: UIViewController {
+class WalletViewController: UIViewController {
     
     // MARK: - UI Money Labels
     
@@ -39,12 +39,16 @@ class UserViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = "Prepare Your Changes"
+        self.title = "Setup Your Wallet"
         
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "LOGOUT", style: UIBarButtonItemStyle.plain, target: self, action: #selector(UserViewController.logout(_:)))
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "LOGOUT", style: UIBarButtonItemStyle.plain, target: self, action: #selector(WalletViewController.logout(_:)))
         
         DataBaseRef = FIRDatabase.database().reference()
         // getUserMoneyAmount()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        self.DataBaseRef?.child("Country").child(self.country!).child(self.username!).removeValue()
     }
     
     override func didReceiveMemoryWarning() {
@@ -126,18 +130,16 @@ class UserViewController: UIViewController {
     //  MARK: - Override functions
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        if segue.identifier == "showMapView" {
-            let targetView = segue.destination as! MapViewController
-            
-            targetView.username = self.username
-            targetView.country = self.country
+        if segue.identifier == "toGoalView" {
+            //let targetView = segue.destination as! MapViewController
+
         }
     }
     
     func logout(_ sender: UIBarButtonItem) {
         print("User : ", self.username ?? "unknow", " Logout")
         
-        DataBaseRef?.child("Country").child(self.country!).child(self.username!).removeValue()
+        self.DataBaseRef?.child("Country").child(self.country!).child(self.username!).removeValue()
         
         self.navigationController!.popToRootViewController(animated: true)
     }

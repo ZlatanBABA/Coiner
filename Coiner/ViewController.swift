@@ -77,7 +77,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDataSou
                     let UsernameItem : [String : String] = ["Occupied" : "No"]
                     self.DataBaseRef?.child("Country").child((self.BTN_Country.titleLabel?.text)!).child(self.TXT_Username.text!).setValue(UsernameItem)
                     
-                    self.performSegue(withIdentifier: "toUserView", sender: nil)
+                    self.performSegue(withIdentifier: "toWalletView", sender: nil)
                 } else {
                     self.shakeButton()
                 }
@@ -156,8 +156,8 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDataSou
     // MARK: - OVERRIDES
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        if segue.identifier == "toUserView" {
-            let targetView = segue.destination as! UserViewController
+        if segue.identifier == "toWalletView" {
+            let targetView = segue.destination as! WalletViewController
             
             targetView.username = self.TXT_Username.text
             targetView.country  = self.countries[selectedCountry]
