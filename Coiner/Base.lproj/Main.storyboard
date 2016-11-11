@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -36,9 +35,9 @@
                                 </connections>
                             </textField>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tMT-mR-zYd">
-                                <rect key="frame" x="0.0" y="467" width="375" height="200"/>
+                                <rect key="frame" x="0.0" y="517" width="375" height="150"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="200" id="Hh1-IP-qco"/>
+                                    <constraint firstAttribute="height" constant="150" id="Hh1-IP-qco"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="PgF-bq-grI"/>
@@ -80,7 +79,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hwl-WH-Cp8">
-                                <rect key="frame" x="313" y="437" width="46" height="30"/>
+                                <rect key="frame" x="329" y="507" width="46" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="46" id="qeH-9N-PSp"/>
                                     <constraint firstAttribute="height" constant="30" id="xsf-RK-gm5"/>
@@ -115,14 +114,14 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="hwl-WH-Cp8" secondAttribute="trailing" id="3Kr-9h-n2S"/>
                             <constraint firstAttribute="bottom" secondItem="tMT-mR-zYd" secondAttribute="bottom" id="G3s-u4-sJU"/>
                             <constraint firstItem="YZF-wt-AjK" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Hhu-Ra-jUV"/>
                             <constraint firstItem="4Wz-fU-eYg" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="HxF-9I-NmV"/>
                             <constraint firstItem="TQi-9G-0qc" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="L2Q-wn-QF7"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="hwl-WH-Cp8" secondAttribute="trailing" id="QVM-uM-XZm"/>
                             <constraint firstItem="Bdb-Lq-x0L" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="R8p-KM-gvp"/>
                             <constraint firstAttribute="trailing" secondItem="tMT-mR-zYd" secondAttribute="trailing" id="Ux8-hz-8lE"/>
-                            <constraint firstItem="tMT-mR-zYd" firstAttribute="top" secondItem="hwl-WH-Cp8" secondAttribute="bottom" id="hVM-Zp-F2J"/>
+                            <constraint firstItem="tMT-mR-zYd" firstAttribute="top" secondItem="hwl-WH-Cp8" secondAttribute="bottom" constant="-20" id="hVM-Zp-F2J"/>
                             <constraint firstItem="Bdb-Lq-x0L" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="lHu-eu-pFz"/>
                             <constraint firstItem="TQi-9G-0qc" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="-140" id="oWy-4I-6Ly"/>
                             <constraint firstItem="tMT-mR-zYd" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="pjG-xx-ghC"/>
@@ -549,7 +548,7 @@
                                                 <state key="normal" title="Button"/>
                                             </button>
                                         </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstItem="tny-h4-v47" firstAttribute="centerY" secondItem="sYZ-UE-kHc" secondAttribute="centerY" constant="200" id="WYP-GF-qQY"/>
                                             <constraint firstItem="tny-h4-v47" firstAttribute="centerX" secondItem="sYZ-UE-kHc" secondAttribute="centerX" id="ePv-j2-qhr"/>
@@ -580,7 +579,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xw7-Ns-i42" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2853.5999999999999" y="1216.6416791604199"/>
+            <point key="canvasLocation" x="2809" y="1216"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="XeX-AE-qLV">
