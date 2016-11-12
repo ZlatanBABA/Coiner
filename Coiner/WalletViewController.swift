@@ -61,7 +61,14 @@ class WalletViewController: UIViewController {
     @IBAction func StartButton(_ sender: AnyObject) {
         
         CollectWallet()
-        self.DataBaseRef?.child("Country").child(self.country!).child(self.username!).child("wallet").updateChildValues(self.Wallet)
+        
+        if IsWalletEmpty() == true {
+            print("Wallet is empty, cannot go to next step")
+        } else {
+            self.DataBaseRef?.child("Country").child(self.country!).child(self.username!).child("wallet").updateChildValues(self.Wallet)
+            
+            performSegue(withIdentifier: "toChangesView", sender: nil)
+        }
         
     }
     
@@ -174,6 +181,24 @@ class WalletViewController: UIViewController {
         self.Wallet["Ten"] = self.LBL_Ten.text
         self.Wallet["TwoZero"] = self.LBL_TwoZero.text
         self.Wallet["FiveZero"] = self.LBL_FiveZero.text
+    }
+    
+    func IsWalletEmpty() -> Bool{
+        
+        var Sum : Double = 0
+        
+        for ValueText in self.Wallet {
+            
+            let Value : Double = Double(ValueText.value as String)!
+            
+            Sum = Sum + Value
+        }
+        
+        if Sum > 0.5 {
+            return false
+        } else {
+            return true
+        }
     }
     
     /*

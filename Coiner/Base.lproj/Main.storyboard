@@ -37,6 +37,7 @@
                             </textField>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tMT-mR-zYd">
                                 <rect key="frame" x="0.0" y="517" width="375" height="150"/>
+                                <color key="backgroundColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="150" id="Hh1-IP-qco"/>
                                 </constraints>
@@ -166,7 +167,6 @@
                                 </state>
                                 <connections>
                                     <action selector="StartButton:" destination="L9K-eU-QEm" eventType="touchUpInside" id="KuR-gG-dzt"/>
-                                    <segue destination="c1E-Ld-sCk" kind="show" identifier="toChangesView" id="BKn-MN-51c"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MWz-4Z-8wd">
@@ -489,6 +489,7 @@
                         <outlet property="LBL_ZeroZeroFive" destination="oHs-Mq-MEY" id="qgh-1Q-pgs"/>
                         <outlet property="LBL_ZeroZeroOne" destination="ed7-Vc-cZn" id="FgM-dh-Pz1"/>
                         <outlet property="LBL_ZeroZeroTwo" destination="H1j-bf-SHr" id="Oko-ei-P8S"/>
+                        <segue destination="c1E-Ld-sCk" kind="show" identifier="toChangesView" id="uC5-IZ-ppy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WaV-Wb-9vG" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -739,7 +740,7 @@
                                 <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </stepper>
                         </subviews>
-                        <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="ues-ie-5tZ" firstAttribute="centerY" secondItem="oyS-Dy-7mc" secondAttribute="centerY" constant="165" id="0g9-Sb-HbH"/>
                             <constraint firstItem="pnC-ry-ogJ" firstAttribute="centerX" secondItem="oyS-Dy-7mc" secondAttribute="centerX" constant="-80" id="1SZ-mh-SCR"/>
