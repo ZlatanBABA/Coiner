@@ -16,6 +16,7 @@
 		F17A17FF1DCEA853008BEC00 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F17A17FE1DCEA853008BEC00 /* GoogleService-Info.plist */; };
 		F17A18031DCEAE94008BEC00 /* WalletViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17A18021DCEAE94008BEC00 /* WalletViewController.swift */; };
 		F17A18051DCEAECA008BEC00 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17A18041DCEAECA008BEC00 /* MapViewController.swift */; };
+		F1BADE801DD78584004FF0BF /* ChangesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BADE7F1DD78584004FF0BF /* ChangesViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		F17A17FE1DCEA853008BEC00 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F17A18021DCEAE94008BEC00 /* WalletViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalletViewController.swift; sourceTree = "<group>"; };
 		F17A18041DCEAECA008BEC00 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		F1BADE7F1DD78584004FF0BF /* ChangesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangesViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +95,7 @@
 				F17A17FE1DCEA853008BEC00 /* GoogleService-Info.plist */,
 				F17A18021DCEAE94008BEC00 /* WalletViewController.swift */,
 				F17A18041DCEAECA008BEC00 /* MapViewController.swift */,
+				F1BADE7F1DD78584004FF0BF /* ChangesViewController.swift */,
 			);
 			path = Coiner;
 			sourceTree = "<group>";
@@ -226,6 +229,7 @@
 				F17A18031DCEAE94008BEC00 /* WalletViewController.swift in Sources */,
 				F17A17ED1DCEA7DE008BEC00 /* AppDelegate.swift in Sources */,
 				F17A18051DCEAECA008BEC00 /* MapViewController.swift in Sources */,
+				F1BADE801DD78584004FF0BF /* ChangesViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
