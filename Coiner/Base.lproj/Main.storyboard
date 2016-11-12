@@ -159,16 +159,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e6S-Ra-3ZY">
-                                <rect key="frame" x="152" y="601.5" width="71" height="44"/>
-                                <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="25"/>
-                                <state key="normal" title="NEXT">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="StartButton:" destination="L9K-eU-QEm" eventType="touchUpInside" id="KuR-gG-dzt"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MWz-4Z-8wd">
                                 <rect key="frame" x="15.5" y="361.5" width="24" height="24.5"/>
                                 <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
@@ -397,6 +387,28 @@
                                     <action selector="Action_STPR_ZeroZeroFive:" destination="L9K-eU-QEm" eventType="valueChanged" id="AVI-U2-uA1"/>
                                 </connections>
                             </stepper>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ATG-BJ-ooL" customClass="CSAnimationView">
+                                <rect key="frame" x="152" y="601.5" width="71" height="44"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e6S-Ra-3ZY">
+                                        <rect key="frame" x="0.0" y="0.0" width="71" height="44"/>
+                                        <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="25"/>
+                                        <state key="normal" title="NEXT">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="StartButton:" destination="L9K-eU-QEm" eventType="touchUpInside" id="KuR-gG-dzt"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="e6S-Ra-3ZY" secondAttribute="trailing" id="1nf-hO-mpp"/>
+                                    <constraint firstItem="e6S-Ra-3ZY" firstAttribute="top" secondItem="ATG-BJ-ooL" secondAttribute="top" id="W9G-eJ-f9a"/>
+                                    <constraint firstAttribute="bottom" secondItem="e6S-Ra-3ZY" secondAttribute="bottom" id="oza-bg-z5y"/>
+                                    <constraint firstItem="e6S-Ra-3ZY" firstAttribute="leading" secondItem="ATG-BJ-ooL" secondAttribute="leading" id="s8T-Vm-Tpp"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -412,7 +424,6 @@
                             <constraint firstItem="48U-bC-UYN" firstAttribute="centerX" secondItem="5h9-Az-kCG" secondAttribute="centerX" constant="160" id="BZh-Dl-7KK"/>
                             <constraint firstItem="6Ex-Tc-q8j" firstAttribute="centerY" secondItem="5h9-Az-kCG" secondAttribute="centerY" constant="85" id="Bis-pS-vax"/>
                             <constraint firstItem="kax-L5-5EA" firstAttribute="centerY" secondItem="5h9-Az-kCG" secondAttribute="centerY" constant="-200" id="BmC-i7-nRF"/>
-                            <constraint firstItem="e6S-Ra-3ZY" firstAttribute="centerY" secondItem="5h9-Az-kCG" secondAttribute="centerY" constant="290" id="CHb-41-EJD"/>
                             <constraint firstItem="5Gm-Ng-7bU" firstAttribute="centerY" secondItem="5h9-Az-kCG" secondAttribute="centerY" constant="-120" id="D8e-hq-VCK"/>
                             <constraint firstItem="IFw-PS-LyV" firstAttribute="centerY" secondItem="5h9-Az-kCG" secondAttribute="centerY" constant="200" id="D90-nr-oLd"/>
                             <constraint firstItem="fCa-F0-B6f" firstAttribute="centerX" secondItem="5h9-Az-kCG" secondAttribute="centerX" constant="-80" id="DGE-yb-BVn"/>
@@ -422,6 +433,7 @@
                             <constraint firstItem="Ll2-Et-bkW" firstAttribute="centerX" secondItem="5h9-Az-kCG" secondAttribute="centerX" constant="-80" id="F0W-Sa-xMx"/>
                             <constraint firstItem="pba-Kk-zgo" firstAttribute="centerX" secondItem="5h9-Az-kCG" secondAttribute="centerX" constant="-160" id="FQz-cf-WWg"/>
                             <constraint firstItem="Ll2-Et-bkW" firstAttribute="centerY" secondItem="5h9-Az-kCG" secondAttribute="centerY" constant="-40" id="FgR-Z9-l7V"/>
+                            <constraint firstItem="ATG-BJ-ooL" firstAttribute="centerY" secondItem="5h9-Az-kCG" secondAttribute="centerY" constant="290" id="Gob-bz-2je"/>
                             <constraint firstItem="f4x-V5-Eez" firstAttribute="centerY" secondItem="5h9-Az-kCG" secondAttribute="centerY" constant="120" id="L3N-61-rHe"/>
                             <constraint firstItem="hdh-4L-cIe" firstAttribute="centerY" secondItem="5h9-Az-kCG" secondAttribute="centerY" constant="5" id="LEl-Wy-UEw"/>
                             <constraint firstItem="foh-Hb-HyV" firstAttribute="centerY" secondItem="5h9-Az-kCG" secondAttribute="centerY" constant="-40" id="PJM-yb-Q7E"/>
@@ -466,17 +478,18 @@
                             <constraint firstItem="zUv-PU-0OT" firstAttribute="centerX" secondItem="5h9-Az-kCG" secondAttribute="centerX" constant="80" id="pMJ-O0-Spq"/>
                             <constraint firstItem="EHb-IO-fX2" firstAttribute="centerY" secondItem="5h9-Az-kCG" secondAttribute="centerY" constant="40" id="pbm-pa-ZT0"/>
                             <constraint firstItem="tS4-ru-frn" firstAttribute="centerX" secondItem="5h9-Az-kCG" secondAttribute="centerX" constant="80" id="rXg-hd-X63"/>
-                            <constraint firstItem="e6S-Ra-3ZY" firstAttribute="centerX" secondItem="5h9-Az-kCG" secondAttribute="centerX" id="tvU-tA-YQ5"/>
                             <constraint firstItem="0cW-ga-oLl" firstAttribute="centerX" secondItem="5h9-Az-kCG" secondAttribute="centerX" constant="-80" id="uZl-dd-23m"/>
                             <constraint firstItem="IFw-PS-LyV" firstAttribute="centerX" secondItem="5h9-Az-kCG" secondAttribute="centerX" constant="-80" id="vJ6-qV-YkU"/>
                             <constraint firstItem="dPM-fV-o8V" firstAttribute="centerX" secondItem="5h9-Az-kCG" secondAttribute="centerX" constant="80" id="vnX-ry-gnk"/>
                             <constraint firstItem="g9W-5z-gFl" firstAttribute="centerX" secondItem="5h9-Az-kCG" secondAttribute="centerX" constant="-160" id="w8r-MD-rdo"/>
                             <constraint firstItem="oHs-Mq-MEY" firstAttribute="centerX" secondItem="5h9-Az-kCG" secondAttribute="centerX" constant="-80" id="wrp-j9-v4s"/>
                             <constraint firstItem="pws-LS-dZX" firstAttribute="centerX" secondItem="5h9-Az-kCG" secondAttribute="centerX" constant="80" id="yc5-Cq-86D"/>
+                            <constraint firstItem="ATG-BJ-ooL" firstAttribute="centerX" secondItem="5h9-Az-kCG" secondAttribute="centerX" id="ycL-mi-jcd"/>
                             <constraint firstItem="QrF-H0-9eo" firstAttribute="centerY" secondItem="5h9-Az-kCG" secondAttribute="centerY" constant="165" id="z0c-ya-ZlN"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="AnimationView" destination="ATG-BJ-ooL" id="Pzr-tX-YBy"/>
                         <outlet property="LBL_Five" destination="pws-LS-dZX" id="3oA-io-D4i"/>
                         <outlet property="LBL_FiveZero" destination="tS4-ru-frn" id="VN2-zy-dBr"/>
                         <outlet property="LBL_One" destination="7sn-jS-Egr" id="TAW-eJ-09i"/>
@@ -494,7 +507,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WaV-Wb-9vG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2809" y="447"/>
+            <point key="canvasLocation" x="2808.8000000000002" y="446.62668665667172"/>
         </scene>
         <!--Map View Controller-->
         <scene sceneID="h80-w2-OUI">

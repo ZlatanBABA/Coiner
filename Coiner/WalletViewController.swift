@@ -8,7 +8,7 @@
 
 import UIKit
 import Firebase
-import FirebaseDatabase
+import Canvas
 
 class WalletViewController: UIViewController {
     
@@ -26,6 +26,9 @@ class WalletViewController: UIViewController {
     @IBOutlet weak var LBL_Ten: UILabel!
     @IBOutlet weak var LBL_TwoZero: UILabel!
     @IBOutlet weak var LBL_FiveZero: UILabel!
+    
+    @IBOutlet weak var AnimationView: CSAnimationView!
+    
     
     var country   : String? = nil
     var username  : String? = nil
@@ -63,6 +66,7 @@ class WalletViewController: UIViewController {
         CollectWallet()
         
         if IsWalletEmpty() == true {
+            self.AlertUserWalletIsEmpty()
             print("Wallet is empty, cannot go to next step")
         } else {
             self.DataBaseRef?.child("Country").child(self.country!).child(self.username!).child("wallet").updateChildValues(self.Wallet)
@@ -199,6 +203,13 @@ class WalletViewController: UIViewController {
         } else {
             return true
         }
+    }
+    
+    func AlertUserWalletIsEmpty() {
+        self.AnimationView.type = "shake"
+        self.AnimationView.duration = 0.1
+        self.AnimationView.delay = 0
+        self.AnimationView.startCanvasAnimation()
     }
     
     /*
